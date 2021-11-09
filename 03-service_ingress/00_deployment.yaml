@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mod08-my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: mod08-my-nginx
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: mod08-my-nginx
+    spec:
+      containers:
+        - name: mod08-my-nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
