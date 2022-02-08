@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prod-config
+data:
+  config.ini: |
+    val1:1
+    val2:2
