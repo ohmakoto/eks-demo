@@ -1,7 +1,7 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mod08-my-nginx-ingress
+  name: mod07-my-nginx-ingress
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -10,7 +10,10 @@ spec:
   rules:
     - http:
         paths:
-          - path: /*
+          - path: /
+            pathType: Prefix
             backend:
-              serviceName: mod08-my-nginx-clusterip
-              servicePort: 80
+              service:
+                name: mod07-my-nginx-clusterip
+                port: 
+                  number: 80
