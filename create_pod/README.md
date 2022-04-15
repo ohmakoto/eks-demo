@@ -1,5 +1,7 @@
 # PodとDeploymentでコンテナを作成する
 
+[Pod](https://kubernetes.io/ja/docs/tutorials/kubernetes-basics/explore/explore-intro/)は1つ以上のコンテナをグループにしたKubernetesのオブジェクトです。Podを宣言すると、Kubernetesでコンテナを起動できます。[Deployment](https://kubernetes.io/ja/docs/concepts/workloads/controllers/deployment/)は[ReplicaSet](https://kubernetes.io/ja/docs/concepts/workloads/controllers/replicaset/)をラップして、Pod数の維持とローリングデプロイを可能にします。
+
 ## Pod
 
 - 作成
