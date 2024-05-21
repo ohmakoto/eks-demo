@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mod8-pvc-30g
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: mod8-sc-high-throughput
+  resources:
+    requests:
+      storage: 30Gi

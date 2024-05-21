@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: amznlinux2
+spec:
+  containers:
+  - name: app
+    image: public.ecr.aws/amazonlinux/amazonlinux:2
+    command: ["/bin/sh",  "-c"]
+    args:
+        - |
+          yum install systemd -y
+          /sbin/init
+    volumeMounts:
+    - name: persistent-storage
+      mountPath: /data
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: mod8-pvc-30g
