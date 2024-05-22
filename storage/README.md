@@ -10,6 +10,11 @@ EBSを扱いますので、あらかじめ[Amazon EBS CSIドライバー](https:
 4. `kubectl apply -f pvc.yaml`を行う
 5. `kubectl apply -f pod.yaml`を行う
 
+### 注意
+
+このリポジトリのマニフェストでは、Podの起動ができないことがあります。これはk8sが、EBSボリュームが存在しているアベイラビリティゾーンとは違うアベイラビリティゾーンのインスタンスへ、Podをスケジューリングした時に発生します。これを防ぐには[こちら](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/examples/kubernetes/static-provisioning/manifests/pv.yaml)のようにPersistentVolumeに、どのアベイラビリティゾーンからならアクセス可能な
+ボリュームであるかを明記する必要があります。
+
 ## EBSボリュームを動的に作成する
 
 1. `kubectl apply -f storageclass.yaml`を行う
